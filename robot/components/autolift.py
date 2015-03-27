@@ -29,7 +29,7 @@ class Autolift(object):
             if self.latest is None:
                 self.latest = now
             
-            if (now-self.latest) > 40:
+            if (now - self.latest) > 40:
                 return True
         else:
             self.latest = None
@@ -38,6 +38,7 @@ class Autolift(object):
     
     def autolift(self):
         if self.allowLift and self.get_switch():
+            
             self.allowLift = False
             print("raising forklift")
             self.tote_forklift.raise_forklift()
@@ -49,7 +50,7 @@ class Autolift(object):
             if self.last_allow is None:
                 self.last_allow = now
                 
-            if now - self.last_allow > 1000:
+            if now - self.last_allow > 1500:
                 self.last_allow = None
                 self.allowLift = True
                 

@@ -1,6 +1,7 @@
 import wpilib
 from pyfrc.physics.drivetrains import mecanum_drivetrain
 from hal_impl.data import hal_data
+from math import sin
 class PhysicsEngine:
     
     
@@ -19,6 +20,8 @@ class PhysicsEngine:
         hal_data['dio'][2]['value'] = True
         hal_data['dio'][3]['value'] = True
         self.controller.add_gyro_channel(0)
+        
+        self.counter = 0
         
     def update_sim(self, hal_data, now, tm_diff):
         if not self.canCalibrated:
@@ -83,6 +86,9 @@ class PhysicsEngine:
             # Simulate the can forklift
             
             # Do something about the distance sensors?
+            hal_data['analog_in'][1]['voltage'] = (2.0793/2)*sin(self.counter/100)+((2.0793/2)+0.4612)
+            hal_data['analog_in'][3]['voltage'] = (2.0793/2)*sin((self.counter/100)+0.5)+((2.0793/2)+0.4612)
+            self.counter += 1
             
             # Gyro
             

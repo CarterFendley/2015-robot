@@ -40,7 +40,7 @@
     "field": {
       "w": 25,
       "h": 27,
-      "px_per_ft": 10,
+      "px_per_ft": 20,
 
       "objects": [
       	{ "color": "grey",

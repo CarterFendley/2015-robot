@@ -20,7 +20,7 @@ class Forklift (object):
         
         self.limit = wpilib.DigitalInput(limit_port)
         
-        self.isCalibrated = False
+        self.isCalibrated = True
         
         self.want_manual = False
         self.manual_value = 0
